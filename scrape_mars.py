@@ -3,11 +3,7 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
 import time
-import requests
 import pandas as pd
-import json
-
-#dictionary containing all scraped data
 
 
 def scrape():
