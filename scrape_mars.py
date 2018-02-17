@@ -10,7 +10,7 @@ def scrape():
     data = {}
 
     # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    executable_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
+    executable_path = {'executable_path': 'GOOGLE_CHROME_BIN'}
     browser = Browser('chrome', **executable_path, headless = True)
 
     #title and paragraph of latest news
