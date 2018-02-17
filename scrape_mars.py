@@ -14,7 +14,7 @@ def scrape():
     opts.binary_location = "/app/.apt/opt/google/chrome/google-chrome"
     # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path, headless = True, chrome_options=opts)
+    browser = Browser('chrome', **executable_path, headless = True)
 
     #title and paragraph of latest news
     url1 = 'https://mars.nasa.gov/news/'
