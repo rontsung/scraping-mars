@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, render_template, request, redirect
-# from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo
 from pymongo import MongoClient
+# from flask_pymongo import PyMongo
 import scrape_mars
 import pandas as pd
 
@@ -20,10 +21,10 @@ def home():
     return render_template("index.html", mars=mars)
 
 
-# Fomr Route that will post the data on submissions
 @app.route("/scrape")
 def send():
     mars = db.mars
+    # mars = mongo.db.mars
     mars_data = scrape_mars.scrape()
     mars.update(
         {},

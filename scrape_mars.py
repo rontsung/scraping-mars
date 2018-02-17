@@ -70,19 +70,22 @@ def scrape():
     browser.visit(url4)
     soup4 = BeautifulSoup(browser.html, 'html.parser')
     ar = soup4.find_all('div', 'description')
+    labels = []
     hemis = []
     hemisphere_image_urls = []
     for e in ar:
-        hemis.append(e.find("h3").text)
-    for name in hemis:
-        new = {}
-        browser.click_link_by_partial_href(name[1:name.find(" ")])
-        soup5 = BeautifulSoup(browser.html, 'html.parser')
-        img_url = soup5.find('div', 'downloads').find('a')['href']
-        new["title"] = name
-        new["img_url"] = img_url
-        hemisphere_image_urls.append(new)
-        browser.back()
+        u= "https://astrogeology.usgs.gov"+e.find('a')['href']
+        if u not in hemis:
+            hemis.append(u)
+    # for name in hemis:
+            new = {}
+            new["title"] = e.find("h3").text
+            browser.visit(u)
+            soup5 = BeautifulSoup(browser.html, 'html.parser')
+            img_url = soup5.find('div', 'downloads').find('a')['href']
+            new["img_url"] = img_url
+            hemisphere_image_urls.append(new)
+            browser.back()
     data["hemisphere"] = hemisphere_image_urls
     print(data)
     return data
