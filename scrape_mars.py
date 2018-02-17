@@ -5,13 +5,16 @@ from bs4 import BeautifulSoup
 import time
 import pandas as pd
 
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+
 
 def scrape():
     data = {}
-
+    opts = ChromeOptions()
+    opts.binary_location = "/app/.apt/opt/google/chrome/google-chrome"
     # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path, headless = True)
+    browser = Browser('chrome', **executable_path, headless = True, chrome_options=opts)
 
     #title and paragraph of latest news
     url1 = 'https://mars.nasa.gov/news/'
