@@ -10,8 +10,8 @@ def scrape():
     data = {}
 
     # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    executable_path = {'executable_path': 'chromedriver.exe'}
-    browser = Browser('chrome', **executable_path, headless = True)
+    executable_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
+    browser = Browser('/app/.apt/usr/bin/google-chrome', **executable_path, headless = True)
 
     #title and paragraph of latest news
     url1 = 'https://mars.nasa.gov/news/'
