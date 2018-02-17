@@ -9,7 +9,8 @@ import pandas as pd
 def scrape():
     data = {}
 
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    executable_path = {'executable_path': 'chromedriver.exe'}
     browser = Browser('chrome', **executable_path, headless = True)
 
     #title and paragraph of latest news
