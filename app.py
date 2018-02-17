@@ -10,12 +10,13 @@ app = Flask(__name__)
 # mongo = PyMongo(app)
 client = MongoClient("mongodb://mars:rams@ds243345.mlab.com:43345/heroku_m5kl8br7")
 db =  client.heroku_m5kl8br7
-mars = db.mars
+
 
 # Home route
 @app.route("/")
 def home():
     # mars = mongo.db.mars.find_one()
+    mars = db.mars
     mars = mars.find_one()
     return render_template("index.html", mars=mars)
 
