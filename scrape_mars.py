@@ -6,6 +6,7 @@ import time
 import pandas as pd
 import os
 
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
@@ -16,7 +17,8 @@ def scrape():
     chrome_options.binary_location = chrome_bin
     # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path, headless = True, chrome_options=chrome_options)
+    driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=chrome_options)
+    browser = Browser('chrome', **executable_path, headless = True)
 
     #title and paragraph of latest news
     url1 = 'https://mars.nasa.gov/news/'
