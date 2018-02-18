@@ -7,7 +7,6 @@ import pandas as pd
 import os
 
 from selenium import webdriver
-# from selenium.webdriver.chrome.options import Options
 
 
 def scrape():
@@ -17,7 +16,6 @@ def scrape():
     chrome_options.binary_location = chrome_bin
     # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     executable_path = {'executable_path': 'chromedriver'}
-    # driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=chrome_options)
     browser = Browser('chrome', **executable_path, headless = True, options = chrome_options)
 
     #title and paragraph of latest news
@@ -67,8 +65,6 @@ def scrape():
             df.at[k, "Value"]= e.text.strip()
             ok = 0
             k += 1
-    # print(df)
-    # print(pp)
     pp = df.to_html(header = False, index = False)
     pp = pp.replace('\n', '')
     data["facts"] = pp
@@ -85,7 +81,6 @@ def scrape():
         u= "https://astrogeology.usgs.gov"+e.find('a')['href']
         if u not in hemis:
             hemis.append(u)
-    # for name in hemis:
             new = {}
             new["title"] = e.find("h3").text
             browser.visit(u)
