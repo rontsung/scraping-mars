@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import time
 import pandas as pd
 
-from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.chrome.options import Options
 
 
 def scrape():
