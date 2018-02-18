@@ -18,7 +18,7 @@ def scrape():
     # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     executable_path = {'executable_path': 'chromedriver'}
     driver = webdriver.Chrome(executable_path="chromedriver", chrome_options=chrome_options)
-    browser = Browser('chrome', **executable_path, headless = True)
+    browser = Browser('chrome', **executable_path, headless = True, chrome_options=chrome_options)
 
     #title and paragraph of latest news
     url1 = 'https://mars.nasa.gov/news/'
