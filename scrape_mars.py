@@ -10,11 +10,11 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 def scrape():
     data = {}
-    opts = ChromeOptions()
-    opts.binary_location = "/app/.apt/opt/google/chrome/google-chrome"
+    chrome_options = Options()
+    chrome_options.binary_location = GOOGLE_CHROME_BIN
     # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path, headless = True)
+    browser = Browser('chrome', **executable_path, headless = True, chrome_options=chrome_options)
 
     #title and paragraph of latest news
     url1 = 'https://mars.nasa.gov/news/'
