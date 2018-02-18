@@ -4,14 +4,16 @@ from splinter import Browser
 from bs4 import BeautifulSoup
 import time
 import pandas as pd
+import os
 
 from selenium.webdriver.chrome.options import Options
 
 
 def scrape():
     data = {}
+    chrome_bin = os.environ.get('GOOGLE_CHROME_SHIM', None)
     chrome_options = Options()
-    chrome_options.binary_location = GOOGLE_CHROME_BIN
+    chrome_options.binary_location = chrome_bin
     # executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     executable_path = {'executable_path': 'chromedriver'}
     browser = Browser('chrome', **executable_path, headless = True, chrome_options=chrome_options)
